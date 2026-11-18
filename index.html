@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="browser-card">
+      <header class="card-header">
+        <div class="browser-icon" aria-hidden="true">🌐</div>
+        <button id="settingsButton" class="settings-button" type="button" aria-expanded="false" aria-controls="settingsPanel">
+          <span data-i18n="settings">Settings</span> <span aria-hidden="true">⚙</span>
+        </button>
+      </header>
+
+      <section id="settingsPanel" class="settings-panel" hidden>
+        <h2 data-i18n="settings">Settings</h2>
+        <label for="languageSelect" data-i18n="language">Language</label>
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="tr">Türkçe</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+          <option value="ru">Русский</option>
+          <option value="ar">العربية</option>
+        </select>
+        <label for="themeSelect" data-i18n="theme">Theme</label>
+        <select id="themeSelect">
+          <option value="light" data-i18n="light">Light</option>
+          <option value="dark" data-i18n="dark">Dark</option>
+        </select>
+        <label for="searchEngineSelect" data-i18n="searchEngine">Search engine</label>
+        <select id="searchEngineSelect">
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+          <option value="duckduckgo">DuckDuckGo</option>
+          <option value="brave">Brave</option>
+        </select>
+      </section>
+
+      <p class="eyebrow" data-i18n="eyebrow">EXPLORE THE WEB</p>
+      <h1 class="title">HTML Browser</h1>
+      <p class="description" data-i18n="description">Enter an address to open it in a new tab, or search the web.</p>
+
+      <form id="addressForm" class="address-form">
+        <label class="visually-hidden" for="addressInput" data-i18n="inputLabel">Web address or search</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          id="addressInput"
+          name="address"
+          type="text"
+          placeholder="https://example.com or search the web"
+          autocomplete="url"
+          spellcheck="false"
+          required
+        />
+        <button type="submit"><span data-i18n="go">Go</span> <span aria-hidden="true">↗</span></button>
+      </form>
+      <section class="shortcuts-section" aria-labelledby="shortcutsTitle">
+        <h2 id="shortcutsTitle" data-i18n="shortcuts">Shortcuts</h2>
+        <ul id="shortcutsList" class="shortcuts-list"></ul>
+        <button id="shortcutToggleButton" class="text-button shortcut-toggle" type="button" aria-expanded="false" aria-controls="shortcutForm" data-i18n="shortcutAddButton">Add shortcut</button>
+        <form id="shortcutForm" class="shortcut-form" hidden>
+          <label class="visually-hidden" for="shortcutName" data-i18n="shortcutName">Shortcut name</label>
+          <input id="shortcutName" name="shortcutName" type="text" data-i18n-placeholder="shortcutNamePlaceholder" placeholder="Name" required />
+          <label class="visually-hidden" for="shortcutUrl" data-i18n="shortcutUrl">Website address</label>
+          <input id="shortcutUrl" name="shortcutUrl" type="text" data-i18n-placeholder="shortcutUrlPlaceholder" placeholder="https://example.com" required />
+          <button type="submit" data-i18n="addShortcut">Add</button>
+        </form>
+      </section>
+      <p class="hint"><span data-i18n="examples">Try:</span> <span data-i18n="exampleAddress">wikipedia.org</span> <span data-i18n="or">or</span> <span data-i18n="exampleSearch">today's weather</span></p>
+
+      <section class="history-section" aria-labelledby="historyTitle">
+        <div class="history-heading">
+          <h2 id="historyTitle" data-i18n="recentSearches">Recent searches</h2>
+          <button id="clearHistoryButton" class="text-button" type="button" data-i18n="clearHistory">Clear history</button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+        <p id="emptyHistory" class="empty-history" data-i18n="emptyHistory">Your searches will appear here.</p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
